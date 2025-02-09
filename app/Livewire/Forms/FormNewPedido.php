@@ -16,8 +16,8 @@ class FormNewPedido extends Form
     #[Rule(['required', 'in:Procesado,Pendiente'])]
     public string $estado = "";
 
-    #[Rule(['required'])]
-    public float $cantidad;
+    #[Rule(['required', 'numeric', 'min:1.00'])]
+    public float $cantidad = 1.00;
 
     public function formStore(){
         $this -> validate();

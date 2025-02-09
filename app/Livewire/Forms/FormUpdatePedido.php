@@ -17,8 +17,8 @@ class FormUpdatePedido extends Form
     #[Rule(['required', 'in:Procesado,Pendiente'])]
     public string $estado = "";
 
-    #[Rule(['required'])]
-    public ?float $cantidad = null;
+    #[Rule(['required', 'numeric', 'min:1.00'])]
+    public float $cantidad = 1.00;
 
     public function rules(): array {
         return [
